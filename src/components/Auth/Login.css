@@ -1,0 +1,12 @@
+@import url('https://fonts.googleapis.com/css?family=Philosopher|Quicksand&display=swap');
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  color: #f7d695;
+  font-weight: bold;
+  background-image: url(../images/shop-exterior.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}
+

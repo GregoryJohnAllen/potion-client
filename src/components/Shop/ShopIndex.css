@@ -1,0 +1,11 @@
+h2 {
+  color: #d15a7c;
+  font-weight: bold;
+}
+
+body {
+  background-image: url(../images/shop-exterior.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}

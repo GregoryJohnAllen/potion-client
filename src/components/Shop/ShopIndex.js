@@ -4,6 +4,7 @@ import "./ShopIndex.css";
 import ShopCreate from "./ShopCreate";
 import ShopEdit from "./ShopEdit";
 import ShopView from "./ShopView";
+import APIURL from '../../helpers/environment'
 
 function ShopIndex(props) {
   const [shops, setShops] = useState([]);
@@ -11,7 +12,7 @@ function ShopIndex(props) {
   const [shopToUpdate, setShopToUpdate] = useState({});
 
   const fetchShops = () => {
-    fetch("http://localhost:4000/shop/getall", {
+    fetch(`${APIURL}/shop/getall`, {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",

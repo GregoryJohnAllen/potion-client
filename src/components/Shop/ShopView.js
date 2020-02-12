@@ -9,6 +9,7 @@ import {
   CardDeck,
   Container
 } from "reactstrap";
+import APIURL from '../../helpers/environment'
 
 const ShopView = props => {
 
@@ -20,10 +21,7 @@ const ShopView = props => {
 
   function MyCard(props) {
     const deleteShop = (id) => {
-      // console.log('LOOK AT THIS ID YOU FOOL' + id)
-      let url = `http:localhost:4000/shop/delete/${id}`
-      // console.log(url)
-      fetch(url, {
+      fetch(`${APIURL}/shop/delete/${id}`, {
         method: 'DELETE',
         headers: new Headers({
           'Content-Type': 'application/json',

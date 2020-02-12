@@ -11,6 +11,7 @@ import {
   Button
 } from "reactstrap";
 import './Signup.css';
+import APIURL from '../../helpers/environment'
 
 function Signup(props) {
   let [username, setUsername] = useState("");
@@ -19,7 +20,7 @@ function Signup(props) {
   let handleSubmit = event => {
     event.preventDefault();
 
-    fetch("http://localhost:4000/user/signup", {
+    fetch(`${APIURL}/user/signup`, {
       method: "POST",
       body: JSON.stringify({
         user: {

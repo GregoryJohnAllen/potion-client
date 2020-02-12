@@ -9,6 +9,7 @@ import {
   ModalHeader,
   ModalBody
 } from "reactstrap";
+import APIURL from '../../helpers/environment'
 
 const ShopEdit = props => {
   const [editShopName, setEditShopName] = useState(props.shopToUpdate.shopname);
@@ -26,7 +27,7 @@ const ShopEdit = props => {
 
   const shopTextUpdate = (event, shop) => {
     event.preventDefault();
-    fetch(`http://localhost:4000/shop/updatetext/${props.shopToUpdate.id}`, {
+    fetch(`${APIURL}/shop/updatetext/${props.shopToUpdate.id}`, {
       method: "PUT",
       body: JSON.stringify({
         definition: {
@@ -48,7 +49,7 @@ const ShopEdit = props => {
 
   const shopPotionUpdate = (event, potion) => {
     event.preventDefault()
-    fetch(`http://localhost:4000/shop/updatepotion/${props.shopToUpdate.id}`)
+    fetch(`${APIURL}/shop/updatepotion/${props.shopToUpdate.id}`)
   }
 
   return (

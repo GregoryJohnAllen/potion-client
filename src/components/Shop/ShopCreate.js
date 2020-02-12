@@ -9,6 +9,7 @@ import {
   Input,
   Collapse
 } from "reactstrap";
+import APIURL from '../../helpers/environment'
 
 const ShopCreate = props => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,7 +27,7 @@ const ShopCreate = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    fetch("http://localhost:4000/shop/create", {
+    fetch(`${APIURL}/shop/create`, {
       method: "POST",
       body: JSON.stringify({
         definition: {
@@ -180,7 +181,7 @@ const ShopCreate = props => {
               </Input>
             </Col>
           </FormGroup>
-          <Button color="success" type="submit">
+          <Button color="success" type="submit" onClick={toggle}>
             Open Up Shop (Save)
           </Button>
         </Form>

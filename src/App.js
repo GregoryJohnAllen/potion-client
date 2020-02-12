@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import './app.css'
 import { Fragment } from "react";
 import Sitebar from "./components/Home/Navbar";
 import Auth from "./components/Auth/Auth";

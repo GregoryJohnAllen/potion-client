@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Philosopher|Quicksand&display=swap');
 
+html,body
+{
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    overflow-x: hidden; 
+}
+/* Above code gets rid of random whitespace on right side of view */
+
 body {
   font-family: 'Quicksand', sans-serif;
   color: #f7d695;

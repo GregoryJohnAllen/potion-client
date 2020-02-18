@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Fragment } from "react";
+import ShopIndex from "./components/Shop/ShopIndex";
 import Sitebar from "./components/Home/Navbar";
 import Auth from "./components/Auth/Auth";
 import Footer from "./components/Home/Footer";
 import Sidebar from "./components/Home/Sidebar";
-import ShopIndex from "./components/Shop/ShopIndex";
 import { BrowserRouter as Router } from "react-router-dom";
 
 function App() {

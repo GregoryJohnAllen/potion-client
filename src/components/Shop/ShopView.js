@@ -9,28 +9,42 @@ import {
   CardDeck,
   Container
 } from "reactstrap";
-import APIURL from '../../helpers/environment'
+import APIURL from "../../helpers/environment";
 
 const ShopView = props => {
-
+  // const [shopOne, setShopOne] = useState([])
   // Use CardImg to put the image as the top most aspect of the card
-  // Or use CardImgOverlay along with CardImg to put the image over   
+  // Or use CardImgOverlay along with CardImg to put the image over
   //  the card itself entirely???
+  const deleteShop = id => {
+    fetch(`${APIURL}/shop/delete/${id}`, {
+      method: "DELETE",
+      headers: new Headers({
+        "Content-Type": "application/json",
+        "Authorization": props.token
+      })
+    }).then(() => {
+      props.fetchShops();
+    });
+  };
 
-  
+  const fetchOneShop = id => {
+    fetch(`${APIURL}/shop/${id}`, {
+      method: 'GET',
+      headers: new Headers({
+        'Content-Type': 'application/json',
+        'Authorization': props.token
+      })
+    })
+    .then(response => response.json())
+    .then(shopOneData => {
+      // props.setShopOne(shopOneData)
+
+      console.log(shopOneData)
+    })
+  }
 
   function MyCard(props) {
-    const deleteShop = (id) => {
-      fetch(`${APIURL}/shop/delete/${id}`, {
-        method: 'DELETE',
-        headers: new Headers({
-          'Content-Type': 'application/json',
-          'Authorization': props.token
-        })
-      })
-      .then(() => {props.fetchShops()})
-    }
-    console.log(props.id)
     //add a modal state here (true or false) so that when the button on the card is clicked it pulls up the modal view of the One shop
     return (
       <CardDeck>
@@ -45,18 +59,40 @@ const ShopView = props => {
             SHOP: {props.shopname} <br /> OWNER(S): {props.ownername}{" "}
           </CardHeader>
           <CardBody>
-            <img src={props.image} width="100%" alt="img" />
             <br />
             DESCRIPTION: <br /> {props.description}
             <br />
             LOCATION: <br /> {props.location}
             <br />
-            <small className="text-muted"> Last Exchange: {props.lastexchange} </small>
-            {console.log(props.id)}
+            <small className="text-muted">
+              {" "}
+              Last Exchange: {props.lastexchange}{" "}
+            </small>
           </CardBody>
-          <Button color="danger" onClick={() => deleteShop(props.id)} >Close Up Shop</Button>
-          <Button color="success" >Open Up Shop</Button>
-          
+          <Row>
+            <Col md="6">
+              <Button
+                color="success"
+                onClick={() => {
+                  fetchOneShop(props.id);
+                  props.shopOn()
+                  props.viewTableShop()
+                }}
+              >
+                Open Up Shop
+              </Button>
+            </Col>
+            <Col md="6">
+              <Button
+                color="danger"
+                onClick={() => {
+                  deleteShop(props.id);
+                }}
+              >
+                Close Up Shop
+              </Button>
+            </Col>
+          </Row>
         </Card>
       </CardDeck>
     );
@@ -78,8 +114,11 @@ const ShopView = props => {
                   description={item.description}
                   location={item.location}
                   lastexchange={item.lastexchange}
-                  fetchShops={props.fetchShops}
                   id={item.id}
+                  fetchShops={props.fetchShops}
+                  viewTableShop={props.viewTableShop}
+                  shopOn={props.shopOn}
+                  fetchOneShop={props.fetchOneShop}
                 />
               </Col>
             );

@@ -20,11 +20,10 @@ const ShopEdit = props => {
     props.shopToUpdate.description
   );
   const [editLocation, setEditLocation] = useState(props.shopToUpdate.location);
-
   //BELOW: Function to edit TEXT information of shop, not to edit quantities or alter the number of players or player level
   
 
-
+  
   const shopTextUpdate = (event, shop) => {
     event.preventDefault();
     fetch(`${APIURL}/shop/updatetext/${props.shopToUpdate.id}`, {
@@ -39,22 +38,17 @@ const ShopEdit = props => {
       }),
       headers: new Headers({
         "Content-Type": "application/json",
-        Authorization: props.token
+        "Authorization": props.token
       })
-    }).then(res => {
+    }).then(() => {
       props.fetchShops();
       props.updateOff();
     });
   };
 
-  const shopPotionUpdate = (event, potion) => {
-    event.preventDefault()
-    fetch(`${APIURL}/shop/updatepotion/${props.shopToUpdate.id}`)
-  }
-
   return (
-    <Modal isOpen={true}>
-      <ModalHeader>Edit Shop Information</ModalHeader>
+    <Modal style={{ color: "#17A2B8" }} isOpen={true}>
+      <ModalHeader style={{ color: "#007BFF"}}>Edit Shop Information</ModalHeader>
       <ModalBody>
         <Form onSubmit={shopTextUpdate}>
           <FormGroup>
@@ -89,7 +83,7 @@ const ShopEdit = props => {
               onChange={e => setEditLocation(e.target.value)}
             />
           </FormGroup>
-          <Button type="submit">Update Shop Info</Button>
+          <Button color="success" type="submit">Update Shop Info</Button>
         </Form>
       </ModalBody>
     </Modal>

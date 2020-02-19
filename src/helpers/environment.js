@@ -1,6 +1,6 @@
 let APIURL = '';
 
-if (window.location.hostname== 'localhost' || '127.0.0.1'){
+if (window.location.hostname== 'localhost' || window.location.hostname== '127.0.0.1'){
     APIURL = 'http://localhost:4000';
 } else {
     APIURL = 'https://potion-server.herokuapp.com'

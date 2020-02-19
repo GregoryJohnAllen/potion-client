@@ -118,7 +118,7 @@ const ShopView = props => {
                   fetchShops={props.fetchShops}
                   viewTableShop={props.viewTableShop}
                   shopOn={props.shopOn}
-                  fetchOneShop={props.fetchOneShop}
+                  fetchOneShop={fetchOneShop}
                 />
               </Col>
             );

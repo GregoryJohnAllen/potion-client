@@ -35,7 +35,8 @@ function Login(props) {
       })
     })
       .then(response => response.json())
-      .then(user => props.updateToken(user.sessionToken));
+      .then(user => props.updateToken(user.sessionToken))
+      .catch(err => console.log(err));
   };
 
   return (

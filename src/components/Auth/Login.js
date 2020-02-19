@@ -20,6 +20,7 @@ function Login(props) {
 
   let handleSubmit = e => {
     e.preventDefault();
+    let x = APIURL
     fetch(`${APIURL}/user/signin`, {
       method: "POST",
       body: JSON.stringify({

@@ -19,24 +19,25 @@ function Login(props) {
   let [password, setPassword] = useState("");
 
   let handleSubmit = e => {
-    console.log(APIURL)
+    
 
     e.preventDefault();
-    fetch(`${APIURL}/user/signin`, {
-      method: "POST",
-      body: JSON.stringify({
-        user: {
-          username: username,
-          password: password
-        }
-      }),
-      headers: new Headers({
-        "Content-Type": "application/json"
-      })
-    })
-      .then(response => response.json())
-      .then(user => props.updateToken(user.sessionToken))
-      .catch(err => console.log(err));
+    console.log(APIURL)
+    // fetch(`${APIURL}/user/signin`, {
+    //   method: "POST",
+    //   body: JSON.stringify({
+    //     user: {
+    //       username: username,
+    //       password: password
+    //     }
+    //   }),
+    //   headers: new Headers({
+    //     "Content-Type": "application/json"
+    //   })
+    // })
+    //   .then(response => response.json())
+    //   .then(user => props.updateToken(user.sessionToken))
+    //   .catch(err => console.log(err));
   };
 
   return (

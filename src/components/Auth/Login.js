@@ -19,8 +19,9 @@ function Login(props) {
   let [password, setPassword] = useState("");
 
   let handleSubmit = e => {
+    console.log(APIURL)
+
     e.preventDefault();
-    let x = APIURL
     fetch(`${APIURL}/user/signin`, {
       method: "POST",
       body: JSON.stringify({

@@ -13,12 +13,14 @@ import {
 import './Signup.css';
 import APIURL from '../../helpers/environment'
 
+
 function Signup(props) {
   let [username, setUsername] = useState("");
   let [password, setPassword] = useState("");
 
   let handleSubmit = event => {
     event.preventDefault();
+    console.log(APIURL)
 
     fetch(`${APIURL}/user/signup`, {
       method: "POST",

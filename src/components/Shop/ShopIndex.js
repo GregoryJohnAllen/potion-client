@@ -3,7 +3,7 @@ import { Container, Row, Col } from "reactstrap";
 import "./ShopIndex.css";
 import ShopCreate from "./ShopCreate";
 import ShopEdit from "./ShopEdit";
-// import ShopTable from "./ShopTable";
+import ShopTable from "./ShopTable";
 import ShopView from "./ShopView";
 import APIURL from "../../helpers/environment";
 
@@ -20,7 +20,7 @@ function ShopIndex(props) {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
-        Authorization: props.token
+        'Authorization': props.token
       })
     })
       .then(response => response.json())
@@ -75,7 +75,7 @@ function ShopIndex(props) {
             viewTableShop={viewTableShop}
           />
         </Col>
-        {/* shop ? (
+        {shop ? (
           <ShopTable
             shops={shops}
             shopOff={shopOff}
@@ -85,7 +85,7 @@ function ShopIndex(props) {
             updateOn={updateOn}
             // shopOne={shopOne}
           />
-        ) : */}{updateActive ? (
+        ) : updateActive ? (
           <ShopEdit
             shopToUpdate={shopToUpdate}
             updateOff={updateOff}

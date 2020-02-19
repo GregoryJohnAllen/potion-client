@@ -9,7 +9,7 @@ switch (window.location.hostname) {
     // this is the deployed react application
     case 'https://potion-shop.herokuapp.com/':
         // this is the full url of your deployed API
-        APIURL = 'https://kcp-pieapi.herokuapp.com'
+        APIURL = 'https://potion-server.herokuapp.com/'
 }
 
 export default APIURL;

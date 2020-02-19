@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState} from "react";
 import {
   Row,
   Col,
@@ -12,7 +12,7 @@ import {
 import APIURL from "../../helpers/environment";
 
 const ShopView = props => {
-  // const [shopOne, setShopOne] = useState([])
+  const [shopOne, setShopOne] = useState([])
   // Use CardImg to put the image as the top most aspect of the card
   // Or use CardImgOverlay along with CardImg to put the image over
   //  the card itself entirely???
@@ -38,7 +38,7 @@ const ShopView = props => {
     })
     .then(response => response.json())
     .then(shopOneData => {
-      // props.setShopOne(shopOneData)
+      setShopOne(shopOneData)
 
       console.log(shopOneData)
     })

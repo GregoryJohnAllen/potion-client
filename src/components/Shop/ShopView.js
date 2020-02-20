@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React from "react";
 import {
   Row,
   Col,
@@ -12,7 +12,6 @@ import {
 import APIURL from "../../helpers/environment";
 
 const ShopView = props => {
-  const [shopOne, setShopOne] = useState([])
   // Use CardImg to put the image as the top most aspect of the card
   // Or use CardImgOverlay along with CardImg to put the image over
   //  the card itself entirely???
@@ -28,24 +27,9 @@ const ShopView = props => {
     });
   };
 
-  const fetchOneShop = id => {
-    fetch(`${APIURL}/shop/${id}`, {
-      method: 'GET',
-      headers: new Headers({
-        'Content-Type': 'application/json',
-        'Authorization': props.token
-      })
-    })
-    .then(response => response.json())
-    .then(shopOneData => {
-      setShopOne(shopOneData)
-
-      console.log(shopOneData)
-    })
-  }
-
   function MyCard(props) {
-    //add a modal state here (true or false) so that when the button on the card is clicked it pulls up the modal view of the One shop
+    
+  
     return (
       <CardDeck>
         <Card
@@ -73,11 +57,6 @@ const ShopView = props => {
             <Col md="6">
               <Button
                 color="success"
-                onClick={() => {
-                  fetchOneShop(props.id);
-                  props.shopOn()
-                  props.viewTableShop()
-                }}
               >
                 Open Up Shop
               </Button>
@@ -97,7 +76,6 @@ const ShopView = props => {
       </CardDeck>
     );
   }
-
   return (
     <div>
       <Container>
@@ -116,9 +94,6 @@ const ShopView = props => {
                   lastexchange={item.lastexchange}
                   id={item.id}
                   fetchShops={props.fetchShops}
-                  viewTableShop={props.viewTableShop}
-                  shopOn={props.shopOn}
-                  fetchOneShop={fetchOneShop}
                 />
               </Col>
             );
@@ -127,6 +102,6 @@ const ShopView = props => {
       </Container>
     </div>
   );
-};
+}
 
 export default ShopView;

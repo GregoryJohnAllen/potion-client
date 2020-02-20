@@ -56,6 +56,7 @@ function ShopIndex(props) {
             fetchShops={fetchShops}
             token={props.token}
             shops={shops}
+            updateOn={updateOn}
           />
         </Col>
         {updateActive ? (

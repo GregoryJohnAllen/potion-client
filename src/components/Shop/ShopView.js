@@ -12,9 +12,7 @@ import {
 import APIURL from "../../helpers/environment";
 
 const ShopView = props => {
-  // Use CardImg to put the image as the top most aspect of the card
-  // Or use CardImgOverlay along with CardImg to put the image over
-  //  the card itself entirely???
+  
   const deleteShop = id => {
     fetch(`${APIURL}/shop/delete/${id}`, {
       method: "DELETE",
@@ -54,14 +52,14 @@ const ShopView = props => {
             </small>
           </CardBody>
           <Row>
-            <Col md="6">
+            <Col md="4">
               <Button
                 color="success"
               >
                 Open Up Shop
               </Button>
             </Col>
-            <Col md="6">
+            <Col md="4">
               <Button
                 color="danger"
                 onClick={() => {

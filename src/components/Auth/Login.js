@@ -22,22 +22,21 @@ function Login(props) {
     
 
     e.preventDefault();
-    console.log(APIURL)
-    // fetch(`${APIURL}/user/signin`, {
-    //   method: "POST",
-    //   body: JSON.stringify({
-    //     user: {
-    //       username: username,
-    //       password: password
-    //     }
-    //   }),
-    //   headers: new Headers({
-    //     "Content-Type": "application/json"
-    //   })
-    // })
-    //   .then(response => response.json())
-    //   .then(user => props.updateToken(user.sessionToken))
-    //   .catch(err => console.log(err));
+    fetch(`${APIURL}/user/signin`, {
+      method: "POST",
+      body: JSON.stringify({
+        user: {
+          username: username,
+          password: password
+        }
+      }),
+      headers: new Headers({
+        "Content-Type": "application/json"
+      })
+    })
+      .then(response => response.json())
+      .then(user => props.updateToken(user.sessionToken))
+      .catch(err => console.log(err));
   };
 
   return (

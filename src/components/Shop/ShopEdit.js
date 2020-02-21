@@ -84,6 +84,7 @@ const ShopEdit = props => {
             />
           </FormGroup>
           <Button color="success" type="submit">Update Shop Info</Button>
+          <Button color="danger" onClick={() => {props.updateOff()}}>Cancel</Button>
         </Form>
       </ModalBody>
     </Modal>

@@ -60,6 +60,16 @@ const ShopView = props => {
               </Button>
             </Col>
             <Col md="4">
+              <Button 
+              color="warning"
+              onClick={() => {
+                props.updateOn()
+              }}
+              >
+                Edit Info
+              </Button>
+            </Col>
+            <Col md="4">
               <Button
                 color="danger"
                 onClick={() => {

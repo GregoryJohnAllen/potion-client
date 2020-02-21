@@ -94,6 +94,7 @@ const ShopEdit = props => {
             <Col md="6">
               <Button
                 color="danger"
+                className="pull-right"
                 onClick={() => {
                   props.updateOff();
                 }}

@@ -60,7 +60,7 @@ const ShopView = props => {
                   props.updateOn();
                 }}
               >
-                Edit Text Info
+                Edit Shop Information
               </Button>
             </Col>
             <Col md="4">

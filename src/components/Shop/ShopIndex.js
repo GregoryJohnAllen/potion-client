@@ -17,7 +17,7 @@ function ShopIndex(props) {
       method: "GET",
       headers: new Headers({
         "Content-Type": "application/json",
-        'Authorization': props.token
+        Authorization: props.token
       })
     })
       .then(response => response.json())
@@ -28,7 +28,7 @@ function ShopIndex(props) {
 
   const editUpdateShop = shop => {
     setShopToUpdate(shop);
-    console.log(shop)
+    console.log(shop);
   };
 
   const updateOn = () => {

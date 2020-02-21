@@ -9,7 +9,7 @@ import {
   Input,
   Collapse
 } from "reactstrap";
-import APIURL from '../../helpers/environment'
+import APIURL from "../../helpers/environment";
 
 const ShopCreate = props => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,7 +41,7 @@ const ShopCreate = props => {
       }),
       headers: new Headers({
         "Content-Type": "application/json",
-        "Authorization": props.token
+        Authorization: props.token
       })
     })
       .then(res => res.json())
@@ -59,7 +59,11 @@ const ShopCreate = props => {
 
   return (
     <Container>
-      <Button color="info" onClick={toggle} style={{ marginBottom: "1rem", marginTop: "1rem" }}>
+      <Button
+        color="info"
+        onClick={toggle}
+        style={{ marginBottom: "1rem", marginTop: "1rem" }}
+      >
         Create A Shop Here
       </Button>
       <Collapse isOpen={isOpen}>
@@ -133,6 +137,7 @@ const ShopCreate = props => {
                 onChange={e => setPlayerNum(e.target.value)}
                 required
               >
+                <option>--</option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -158,6 +163,7 @@ const ShopCreate = props => {
                 onChange={e => setLevelNum(e.target.value)}
                 required
               >
+                <option>--</option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>

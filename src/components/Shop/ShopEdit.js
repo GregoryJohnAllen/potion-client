@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import {
+  Row,
+  Col,
   Button,
   Form,
   FormGroup,
@@ -9,7 +11,7 @@ import {
   ModalHeader,
   ModalBody
 } from "reactstrap";
-import APIURL from '../../helpers/environment'
+import APIURL from "../../helpers/environment";
 
 const ShopEdit = props => {
   const [editShopName, setEditShopName] = useState(props.shopToUpdate.shopname);
@@ -21,9 +23,7 @@ const ShopEdit = props => {
   );
   const [editLocation, setEditLocation] = useState(props.shopToUpdate.location);
   //BELOW: Function to edit TEXT information of shop, not to edit quantities or alter the number of players or player level
-  
 
-  
   const shopTextUpdate = (event, shop) => {
     event.preventDefault();
     fetch(`${APIURL}/shop/updatetext/${props.shopToUpdate.id}`, {
@@ -38,7 +38,7 @@ const ShopEdit = props => {
       }),
       headers: new Headers({
         "Content-Type": "application/json",
-        "Authorization": props.token
+        Authorization: props.token
       })
     }).then(() => {
       props.fetchShops();
@@ -48,7 +48,9 @@ const ShopEdit = props => {
 
   return (
     <Modal style={{ color: "#17A2B8" }} isOpen={true}>
-      <ModalHeader style={{ color: "#007BFF"}}>Edit Shop Information</ModalHeader>
+      <ModalHeader style={{ color: "#007BFF" }}>
+        Edit Shop Information
+      </ModalHeader>
       <ModalBody>
         <Form onSubmit={shopTextUpdate}>
           <FormGroup>
@@ -83,8 +85,23 @@ const ShopEdit = props => {
               onChange={e => setEditLocation(e.target.value)}
             />
           </FormGroup>
-          <Button color="success" type="submit">Update Shop Info</Button>
-          <Button color="danger" onClick={() => {props.updateOff()}}>Cancel</Button>
+          <Row>
+            <Col md="6">
+              <Button color="success" type="submit">
+                Update Shop Info
+              </Button>
+            </Col>
+            <Col md="6">
+              <Button
+                color="danger"
+                onClick={() => {
+                  props.updateOff();
+                }}
+              >
+                Cancel
+              </Button>
+            </Col>
+          </Row>
         </Form>
       </ModalBody>
     </Modal>

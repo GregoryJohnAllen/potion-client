@@ -12,13 +12,12 @@ import {
 import APIURL from "../../helpers/environment";
 
 const ShopView = props => {
-  
   const deleteShop = id => {
     fetch(`${APIURL}/shop/delete/${id}`, {
       method: "DELETE",
       headers: new Headers({
         "Content-Type": "application/json",
-        "Authorization": props.token
+        Authorization: props.token
       })
     }).then(() => {
       props.fetchShops();
@@ -26,8 +25,6 @@ const ShopView = props => {
   };
 
   function MyCard(props) {
-    
-  
     return (
       <CardDeck>
         <Card
@@ -53,19 +50,15 @@ const ShopView = props => {
           </CardBody>
           <Row>
             <Col md="4">
-              <Button
-                color="success"
-              >
-                Open Up Shop
-              </Button>
+              <Button color="success">Open Up Shop</Button>
             </Col>
             <Col md="4">
-              <Button 
-              color="warning"
-              onClick={() => {
-              props.editUpdateShop(props.shopItem)
-              props.updateOn()
-              }}
+              <Button
+                color="warning"
+                onClick={() => {
+                  props.editUpdateShop(props.shopItem);
+                  props.updateOn();
+                }}
               >
                 Edit Text Info
               </Button>
@@ -114,6 +107,6 @@ const ShopView = props => {
       </Container>
     </div>
   );
-}
+};
 
 export default ShopView;

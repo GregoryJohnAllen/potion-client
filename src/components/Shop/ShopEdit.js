@@ -72,6 +72,7 @@ const ShopEdit = props => {
           <FormGroup>
             <Label htmlFor="description"> Edit Description:</Label>
             <Input
+              type="textarea"
               name="description"
               value={editDescription}
               onChange={e => setEditDescription(e.target.value)}
@@ -94,7 +95,6 @@ const ShopEdit = props => {
             <Col md="6">
               <Button
                 color="danger"
-                className="pull-right"
                 onClick={() => {
                   props.updateOff();
                 }}

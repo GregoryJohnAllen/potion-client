@@ -31,7 +31,7 @@ const ShopView = props => {
           body
           outline
           color="primary"
-          style={{ color: "#17A2B8", margin: "30px", opacity: ".75" }}
+          style={{ color: "#17A2B8", margin: "30px", opacity: ".85" }}
         >
           <CardHeader style={{ color: "#007BFF", fontSize: "1.25em" }}>
             {" "}

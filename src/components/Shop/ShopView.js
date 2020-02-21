@@ -63,10 +63,11 @@ const ShopView = props => {
               <Button 
               color="warning"
               onClick={() => {
-                props.updateOn()
+              props.editUpdateShop(props.shopItem)
+              props.updateOn()
               }}
               >
-                Edit Info
+                Edit Text Info
               </Button>
             </Col>
             <Col md="4">
@@ -102,6 +103,9 @@ const ShopView = props => {
                   lastexchange={item.lastexchange}
                   id={item.id}
                   fetchShops={props.fetchShops}
+                  shopItem={item}
+                  editUpdateShop={props.editUpdateShop}
+                  updateOn={props.updateOn}
                 />
               </Col>
             );

@@ -28,6 +28,7 @@ function ShopIndex(props) {
 
   const editUpdateShop = shop => {
     setShopToUpdate(shop);
+    console.log(shop)
   };
 
   const updateOn = () => {
@@ -57,14 +58,16 @@ function ShopIndex(props) {
             token={props.token}
             shops={shops}
             updateOn={updateOn}
+            editUpdateShop={editUpdateShop}
           />
         </Col>
         {updateActive ? (
           <ShopEdit
-            shopToUpdate={shopToUpdate}
+            editUpdateShop={editUpdateShop}
             updateOff={updateOff}
             token={props.token}
             fetchShops={fetchShops}
+            shopToUpdate={shopToUpdate}
           />
         ) : (
           <React.Fragment />

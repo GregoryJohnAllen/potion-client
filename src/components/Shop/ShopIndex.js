@@ -4,6 +4,7 @@ import "./ShopIndex.css";
 import ShopCreate from "./ShopCreate";
 import ShopEdit from "./ShopEdit";
 import ShopView from "./ShopView";
+import ShopTable from "./ShopTable"
 import APIURL from "../../helpers/environment";
 
 function ShopIndex(props) {
@@ -11,6 +12,9 @@ function ShopIndex(props) {
 
   const [updateActive, setUpdateActive] = useState(false);
   const [shopToUpdate, setShopToUpdate] = useState({});
+
+  const [viewShop, setViewShop] = useState(false);
+  const [shopGet, setShopGet] = useState({});
 
   const fetchShops = () => {
     fetch(`${APIURL}/shop/getall`, {
@@ -39,6 +43,18 @@ function ShopIndex(props) {
     setUpdateActive(false);
   };
 
+  const viewOneShop = shop => {
+    setShopGet(shop);
+  };
+
+  const shopOn = () => {
+    setViewShop(true);
+  };
+
+  const shopOff = () => {
+    setViewShop(false);
+  };
+
   useEffect(() => {
     fetchShops();
   }, []);
@@ -59,6 +75,9 @@ function ShopIndex(props) {
             shops={shops}
             updateOn={updateOn}
             editUpdateShop={editUpdateShop}
+            // viewShop={shopView}
+            viewOneShop={viewOneShop}
+            shopOn={shopOn}
           />
         </Col>
         {updateActive ? (
@@ -68,6 +87,12 @@ function ShopIndex(props) {
             token={props.token}
             fetchShops={fetchShops}
             shopToUpdate={shopToUpdate}
+          />
+        ) : viewShop ? (
+          <ShopTable
+            shopOff={shopOff}
+            token={props.token}
+            shopGet={shopGet}
           />
         ) : (
           <React.Fragment />

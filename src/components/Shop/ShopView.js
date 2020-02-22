@@ -50,7 +50,15 @@ const ShopView = props => {
           </CardBody>
           <Row>
             <Col md="4">
-              <Button color="success">Open Up Shop</Button>
+              <Button
+                color="success"
+                onClick={() => {
+                  props.viewOneShop(props.shopItem)
+                  props.shopOn();
+                }}
+              >
+                Open Up Shop
+              </Button>
             </Col>
             <Col md="4">
               <Button
@@ -99,6 +107,8 @@ const ShopView = props => {
                   shopItem={item}
                   editUpdateShop={props.editUpdateShop}
                   updateOn={props.updateOn}
+                  shopOn={props.shopOn}
+                  viewOneShop={props.viewOneShop}
                 />
               </Col>
             );

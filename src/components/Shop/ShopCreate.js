@@ -27,6 +27,38 @@ const ShopCreate = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    let stock = [];
+    //calling shopPop() to stock shop
+
+    popShop(stock);
+  };
+
+  //shopPop() goes here
+  const popShop = bottle => {
+    let rarity =
+      levelNum <= 5
+        ? "Common"
+        : levelNum <= 10
+        ? "Uncommon"
+        : levelNum <= 15
+        ? "Rare"
+        : "Very Rare";
+
+    fetch(`${APIURL}/potion/rarity/${rarity}`, {
+      method: "GET",
+      headers: new Headers({
+        "Content-Type": "application/json"
+      })
+    })
+      .then(res => res.json())
+      .then(res => {
+        res.forEach(potion => bottle.push(potion.id));
+        createStuff(bottle);
+      });
+  };
+  //add easter egg for above lvl 20 "LEGENDARY"
+
+  const createStuff = mybrews => {
     fetch(`${APIURL}/shop/create`, {
       method: "POST",
       body: JSON.stringify({
@@ -36,7 +68,8 @@ const ShopCreate = props => {
           description: description,
           location: location,
           playerNum: playerNum,
-          levelNum: levelNum
+          levelNum: levelNum,
+          stockName: mybrews
         }
       }),
       headers: new Headers({
